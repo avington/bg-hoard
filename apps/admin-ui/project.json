@@ -1,0 +1,67 @@
+{
+  "name": "admin-ui",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/admin-ui/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/admin-ui",
+        "main": "apps/admin-ui/src/main.ts",
+        "tsConfig": "apps/admin-ui/tsconfig.app.json",
+        "assets": ["apps/admin-ui/src/assets"]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/admin-ui/src/environments/environment.ts",
+              "with": "apps/admin-ui/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/js:node",
+      "options": {
+        "buildTarget": "admin-ui:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "admin-ui:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/admin-ui/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/admin-ui/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "deploy": {
+      "executor": "nx:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "surge dist/apps/admin-ui/exported ${SURGE_DOMAIN_ADMIN_UI} --token ${SURGE_TOKEN}"
+      }
+    }
+  },
+  "tags": []
+}
