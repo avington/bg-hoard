@@ -52,5 +52,6 @@
       }
     }
   },
-  "tags": ["scope:store", "type:lib"]
+  "tags": ["scope:store", "type:ui"],
+  "implicitDependencies": []
 }
