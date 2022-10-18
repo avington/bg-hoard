@@ -12,7 +12,7 @@
           "e2e",
           "build-storybook"
         ],
-        "accessToken": "MTUyNzc4YWEtMGRkZC00ZTU0LWJiMjYtMzVlMTZlZGQwODY1fHJlYWQtd3JpdGU="
+        "accessToken": "MmFjMWM1YjYtY2IxZS00ZjMwLWEyYzItMzdjYWQ5ODA1MGI3fHJlYWQtd3JpdGU="
       }
     }
   },
@@ -84,5 +84,8 @@
       "style": "css"
     }
   },
-  "defaultProject": "store"
+  "defaultProject": "store",
+  "implicitDependencies": {
+    ".github/workflows/ci.yml": "*"
+  }
 }
