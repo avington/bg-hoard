@@ -1,20 +1,20 @@
 {
   "migrations": [
     {
-      "version": "0.1.10",
-      "description": "Complete Lab 10",
-      "factory": "./src/migrations/complete-lab-10/complete-lab-10",
-      "cli": "nx",
-      "package": "@nrwl/nx-workshop",
-      "name": "complete-lab-10"
-    },
-    {
       "version": "0.1.11",
       "description": "Complete Lab 11",
       "factory": "./src/migrations/complete-lab-11/complete-lab-11",
       "cli": "nx",
       "package": "@nrwl/nx-workshop",
       "name": "complete-lab-11"
+    },
+    {
+      "version": "0.1.12",
+      "description": "Complete Lab 12",
+      "factory": "./src/migrations/complete-lab-12/complete-lab-12",
+      "cli": "nx",
+      "package": "@nrwl/nx-workshop",
+      "name": "complete-lab-12"
     }
   ]
 }
